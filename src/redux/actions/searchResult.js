@@ -9,8 +9,9 @@ export const getResult = (keyword) => async (dispatch, getState) => {
   if (cachedItems[keyword]) {
     paginatedItems = cachedItems[keyword];
   } else {
+    const apiKey = 'YOUR_API_KEY';
     const result = await axios.get(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyAW-8LceJEYWeSS5G3RIL3vVkepmN6_DCM&q=${keyword}&maxResults=30&type=video`
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${apiKey}&q=${keyword}&maxResults=30&type=video`
     );
 
     const maxPage = 10;
